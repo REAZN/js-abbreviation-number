@@ -7,9 +7,9 @@ export function unabbreviateNumber(num: string, symbols = defaultSymbols) {
   const symbolPattern = `${symbols.join("|")}`;
   const pattern = `^(${numberPattern})(${symbolPattern})$`;
   const regex = new RegExp(pattern);
-  const match = num.match(pattern) || [];
+  const match = num.toLowerCase().match(pattern) || [];
 
-  if (regex.test(num) && match.length > 3) {
+  if (regex.test(num.toLowerCase()) && match.length > 3) {
     const symbol = match[3];
     const symbolValue = symbolPow(symbols.indexOf(symbol));
     const pureNum = Number(match[1]);
