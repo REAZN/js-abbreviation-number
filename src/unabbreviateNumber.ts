@@ -4,12 +4,12 @@ import { symbolPow } from "./utils";
 
 export function unabbreviateNumber(num: string, symbols = defaultSymbols) {
   const numberPattern = "[+-]?([0-9]*[.])?[0-9]+";
-  const symbolPattern = `${symbols.join("|")}`;
+  const symbolPattern = `${symbols.join("|").toUpperCase()}`;
   const pattern = `^(${numberPattern})(${symbolPattern})$`;
   const regex = new RegExp(pattern);
-  const match = num.toLowerCase().match(pattern) || [];
+  const match = num.toUpperCase().match(pattern) || [];
 
-  if (regex.test(num.toLowerCase()) && match.length > 3) {
+  if (regex.test(num.toUpperCase()) && match.length > 3) {
     const symbol = match[3];
     const symbolValue = symbolPow(symbols.indexOf(symbol));
     const pureNum = Number(match[1]);
