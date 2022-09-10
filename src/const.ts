@@ -1,1 +1,1 @@
-export const defaultSymbols = ["", "k", "M", "G", "T", "P", "E"];
+export const defaultSymbols = ["", "K", "M", "B", "T", "Q", "S"];
